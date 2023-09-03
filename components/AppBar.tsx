@@ -9,6 +9,10 @@ function AppBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isloggedIn = true;
 
+  const handleModalTogle = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   return (
     <header className=" relative bg-slate-400 px-6 py-2">
       <nav className=" flex items-center justify-between">
@@ -42,7 +46,7 @@ function AppBar() {
           </div>
         )}
       </nav>
-      {isModalOpen && <UserModal />}
+      {isModalOpen && <UserModal modalToggler={handleModalTogle} />}
     </header>
   );
 }
